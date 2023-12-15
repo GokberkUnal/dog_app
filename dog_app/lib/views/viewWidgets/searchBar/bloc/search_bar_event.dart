@@ -13,5 +13,10 @@ class DeactivateEvent extends SearchBarEvent {}
 
 class FullSizeEvent extends SearchBarEvent {}
 
+class SearchDogEvent extends SearchBarEvent {
+  final String dogBreedName;
+  const SearchDogEvent(this.dogBreedName);
 
-
+  @override
+  List<Object> get props => [dogBreedName];
+}

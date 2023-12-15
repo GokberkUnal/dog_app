@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:dog_app/models/responseModels/dog_breeds_model.dart';
 
@@ -92,4 +94,33 @@ class ApiService {
   Future<Uint8List> downloadDogImageInBackground(String dogName) async {
     return await compute(_downloadDogImage, dogName);
   }
+
+  Future<List<DogBreedViewModel>> searchBreed(String breedName) async {
+    List<DogBreedViewModel> dogBreedViewModeList = [];
+
+    try {
+      Response response =
+          await _dio.get("https://dog.ceo/api/breed/$breedName/list");
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> subBreedsData = response.data;
+        List<String> messageList = List<String>.from(subBreedsData['message']);
+        Uint8List dogImage = await downloadRandomDogImage(breedName);
+
+        dogBreedViewModeList.add(DogBreedViewModel(
+            dogBreedName: breedName,
+            dogSubBreedName: messageList,
+            dogImage: dogImage));
+             
+      }
+       return dogBreedViewModeList;
+    } catch (e) {
+      // Dio hatası oluştuysa yakalayın
+      print('Error: $e');
+        throw Exception('Failed to load dog breeds');
+      
+    }
+  
+  }
+
 }

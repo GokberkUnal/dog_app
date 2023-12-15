@@ -9,17 +9,17 @@ List<String> dogSubBreedName;
 
 DogBreedViewModel({required this.dogBreedName,required this.dogSubBreedName,required this.dogImage});
 
-  // Uint8List'i String'e dönüştürme
+  
   static String? encodeUint8List(Uint8List? uint8List) {
     return uint8List != null ? base64Encode(uint8List) : null;
   }
 
-  // String'i Uint8List'e dönüştürme
+
   static Uint8List? decodeUint8List(String? encodedString) {
     return encodedString != null ? base64Decode(encodedString) : null;
   }
 
-  // Serileştirme işlemi
+
   Map<String, dynamic> toMap() {
     return {
       'dogBreedName': dogBreedName,
@@ -28,7 +28,6 @@ DogBreedViewModel({required this.dogBreedName,required this.dogSubBreedName,requ
     };
   }
 
-  // Deserileştirme işlemi
   factory DogBreedViewModel.fromMap(Map<String, dynamic> map) {
     return DogBreedViewModel(
       dogBreedName: map['dogBreedName'],

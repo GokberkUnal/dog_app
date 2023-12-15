@@ -9,12 +9,12 @@ class DogAppRouter {
     switch (settings.name) {
       case '/splashscreen':
         return MaterialPageRoute(builder: (_) => BlocProvider(
-            create: (context) => SplashScreenBloc(), // İkinci sayfada kullanılacak Bloc'u tanımlayın
+            create: (context) => SplashScreenBloc(), 
             child: const SplashScreen(),
           ),);
       case '/mainscreen':
         return MaterialPageRoute(builder: (_) => BlocProvider(
-            create: (context) => MainScreenBloc(), // İkinci sayfada kullanılacak Bloc'u tanımlayın
+            create: (context) => MainScreenBloc(), 
             child: const MainScreen(),
           ),);
       default:

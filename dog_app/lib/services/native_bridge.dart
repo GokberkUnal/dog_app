@@ -7,8 +7,8 @@ class NativeBridge {
     try {
       return await platform.invokeMethod('getPlatformVersion');
     } catch (e) {
-      print('Hata: $e');
-      return "Hata oluştu";
+      print('Error: $e');
+      return "Error";
     }
   }
 }

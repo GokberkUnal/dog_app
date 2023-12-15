@@ -14,3 +14,14 @@ class DeactiveBarState extends SearchBarState {}
 class ActiveBarState extends SearchBarState {}
 
 class FullSizeBarState extends SearchBarState {}
+
+class SearchingDogStarted extends SearchBarState{}
+class SearchingDogDone extends SearchBarState{
+    final List<DogBreedViewModel> dogBreedViewModel;
+
+    const SearchingDogDone(this.dogBreedViewModel);
+}
+class SearchingDogError extends SearchBarState{
+    final String error;
+    const SearchingDogError(this.error);
+}
