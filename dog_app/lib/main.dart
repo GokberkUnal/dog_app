@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor:  const Color.fromRGBO(0, 85, 211, 1)),
         useMaterial3: true,
       ),
-     initialRoute: '/splashscreen', // Başlangıçta hangi rota üzerinden başlayacağınızı belirtin
+     initialRoute: '/splashscreen', 
       onGenerateRoute: DogAppRouter.generateRoute,
   
 );

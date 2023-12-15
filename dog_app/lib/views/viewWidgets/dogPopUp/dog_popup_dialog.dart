@@ -21,7 +21,7 @@ class DogPopupDialog extends StatelessWidget {
 
   Widget dogPopUpDialogContainer(
       DogBreedViewModel dogBreedViewModel, BuildContext context) {
-    // Geçici bir değişken oluşturun ve içeriği saklayın
+  
     Widget content = dogInfoCard(indexDog, context);
 
     return ClipRRect(
@@ -31,7 +31,7 @@ class DogPopupDialog extends StatelessWidget {
         height: MediaQuery.of(context).size.height * .75,
         child: Stack(
           children: [
-            content, // İçeriği burada kullanın
+            content,
             Align(
                 alignment: Alignment.topRight,
                 child: closePopUpButton(context, "assets/icons/xbutton.svg")),
@@ -265,7 +265,7 @@ class DogPopupDialog extends StatelessWidget {
 
   Widget randomDogPhotoContainer(
       Uint8List? randomDogPhoto, BuildContext context) {
-    // Geçici bir değişken oluşturun ve içeriği saklayın
+  
     Widget content = SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width,
@@ -293,6 +293,6 @@ class DogPopupDialog extends StatelessWidget {
       ),
     );
 
-    return content; // İçeriği burada kullanın
+    return content; 
   }
 }
