@@ -32,7 +32,7 @@ class SearchBarWidget extends StatelessWidget {
           return searchedList(context,state);
         }
          if (state is SearchingDogError) {
-          return searchError(context);
+          return searchError(context,state);
         }
 
         return Container(
@@ -197,7 +197,7 @@ class SearchBarWidget extends StatelessWidget {
     );
   }
 
-   GestureDetector searchError(BuildContext context) {
+   GestureDetector searchError(BuildContext context, SearchingDogError state) {
     return GestureDetector(
       onVerticalDragUpdate: (details) {
         int sensitivity = 8;
@@ -213,7 +213,7 @@ class SearchBarWidget extends StatelessWidget {
       child: Container(
           
 
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.73,
         decoration: BoxDecoration(
@@ -229,7 +229,7 @@ class SearchBarWidget extends StatelessWidget {
         child: SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.70,
-            child: const Text('Error occured',style:   TextStyle(
+            child: const Text('Dog not found',style:   TextStyle(
           color: Color.fromRGBO(60, 60, 67, 0.6000000238418579),
           fontFamily: 'assets/fonts/galano-grotesque/Galano Grotesque.otf',
           fontSize: 16,
